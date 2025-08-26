@@ -2,42 +2,24 @@
 <html>
   <head>
     <title>Abhinav's First Webpage</title>
-    <style>
-      #stars span {
-        font-size: 3.5rem;
-        cursor: pointer;
-        color: lightgray;
-        transition: color 0.2s;
-      }
-      #stars span.selected {
-        color: gold;
-      }
-      form {
-        margin-top: 30px;
-        font-family: sans-serif;
-      }
-      label {
-        display: block;
-        margin-top: 15px;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
+  <div class="main">
     <h1>Welcome people</h1>
     <p>This is my first webpage</p>
 
-    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1">
-      <button>Click me</button>
-    </a>
+   <button>New app arriving Sept 1 2025!!!!!</button>
+   
+   
 
-    <!-- 💬 Review Form -->
     <form action="https://formspree.io/f/mblarypl" method="POST">
       <label for="name">Your Name:</label>
       <input type="text" name="name" id="name" required>
 
       <label for="rating">Rate this page:</label>
-      <div id="stars">
+      < id="stars">
         <span data-value="1">★</span>
         <span data-value="2">★</span>
         <span data-value="3">★</span>
@@ -45,39 +27,25 @@
         <span data-value="5">★</span>
       </div>
       <input type="hidden" name="rating" id="rating" required>
+      <input type="hidden" name="_subject" value="New review submitted"><!-- moved inside form -->
 
       <label for="review">Your Review:</label>
-      <textarea name="review" id="review" rows="4" cols="40" required></textarea>
-
-      <button type="submit">Submit Review</button>
+      <div id="review-section">
+        <textarea name="review" id="review" rows="4" cols="40" required></textarea>
+        <div id="char-counter">0 / 250</div>
+        <button class="button-link" type="submit">Submit Review</button>
+      </div>
     </form>
+  </div>
 
-    <input type="hidden" name="_subject" value="New review submitted">
-    <br><br>
-    <script>
-      const stars = document.querySelectorAll("#stars span");
-      const ratingInput = document.getElementById("rating");
+  <script src="script.js"></script>
+</body>
 
-      stars.forEach(star => {
-        star.addEventListener("click", () => {
-          const rating = star.getAttribute("data-value");
-          ratingInput.value = rating;
-
-          // Clear old selection
-          stars.forEach(s => s.classList.remove("selected"));
-
-          // Highlight selected stars
-          for (let i = 0; i < rating; i++) {
-            stars[i].classList.add("selected");
-
-
-
-          }
-        });
-      });
-    </script>
-  </body>
 </html>
 
-<button>Click me </button>
-<a href="
+<!--
+  - Formspree setup:
+    1. Go to https://formspree.io/
+    2. Sign up and create a new form.
+    3. Replace the form action URL with your unique Formspree endpoint.
+    4. Optionally, set up email notifications in Formspree settings.
